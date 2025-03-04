@@ -37,5 +37,5 @@
 		"lint": "prettier --write . && eslint .",
 		"npm-publish": "yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive"
 	},
-	"version": "1.0.1"
+	"version": "1.0.2"
 }

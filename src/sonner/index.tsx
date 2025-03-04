@@ -1,3 +1,5 @@
+'use client';
+
 import '@/sonner/styles.css';
 
 import { flushSync } from 'react-dom';
