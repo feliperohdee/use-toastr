@@ -32,7 +32,7 @@ export default defineConfig(env => {
 		config.plugins = [
 			...config.plugins!,
 			dts({
-				include: ['./src/*'],
+				include: ['./src/sonner/*', './src/index.ts'],
 				rollupTypes: true,
 				tsconfigPath: './tsconfig.app.json'
 			})
