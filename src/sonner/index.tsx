@@ -16,14 +16,13 @@ import { CloseIcon, getAsset, Loader } from '@/sonner/assets';
 import { useIsDocumentHidden } from '@/sonner/hooks';
 import { toast, ToastState } from '@/sonner/state';
 import {
+	HeightT,
 	isAction,
 	SwipeDirection,
-	type ExternalToast,
-	type HeightT,
-	type ToasterProps,
-	type ToastProps,
-	type ToastT,
-	type ToastToDismiss
+	ToasterProps,
+	ToastProps,
+	ToastT,
+	ToastToDismiss
 } from '@/sonner/types';
 
 // Visible toasts amount
@@ -850,13 +849,11 @@ const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
 	useEffect(() => {
 		return ToastState.subscribe(toast => {
 			if ((toast as ToastToDismiss).dismiss) {
-				const map = toasts.map(t =>
-					t.id === toast.id ? { ...t, delete: true } : t
+				setToasts(toasts =>
+					toasts.map(t =>
+						t.id === toast.id ? { ...t, delete: true } : t
+					)
 				);
-				// Prevent batching of other state updates
-				requestAnimationFrame(() => {
-					setToasts(map);
-				});
 				return;
 			}
 
@@ -885,7 +882,7 @@ const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
 				});
 			});
 		});
-	}, [toasts]);
+	}, []);
 
 	useEffect(() => {
 		if (theme !== 'system') {
@@ -1134,16 +1131,4 @@ const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
 	);
 });
 
-export {
-	toast,
-	Toaster,
-	type ExternalToast,
-	type ToastT,
-	type ToasterProps,
-	useSonner
-};
-export {
-	type ToastClassnames,
-	type ToastToDismiss,
-	type Action
-} from './types';
+export { toast, Toaster, useSonner };

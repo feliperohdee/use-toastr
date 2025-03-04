@@ -18,6 +18,7 @@ export default defineConfig(env => {
 			copyPublicDir: false,
 			lib: {
 				entry: './src/index.ts',
+				fileName: 'index',
 				formats: ['es']
 			},
 			rollupOptions: {

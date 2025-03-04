@@ -93,6 +93,10 @@ class Observer {
 	dismiss = (id: number | string) => {
 		this.dismissedToasts.add(id);
 
+		this.toasts = this.toasts.filter(toast => {
+			return toast.id !== id;
+		});
+
 		if (!id) {
 			this.toasts.forEach(toast => {
 				this.subscribers.forEach(subscriber =>
@@ -101,11 +105,12 @@ class Observer {
 			});
 		}
 
-		requestAnimationFrame(() =>
+		setTimeout(() => {
 			this.subscribers.forEach(subscriber =>
 				subscriber({ id, dismiss: true })
-			)
-		);
+			);
+		}, 0);
+
 		return id;
 	};
 
