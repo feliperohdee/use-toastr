@@ -1,5 +1,3 @@
-'use client';
-
 import type { ToastTypes } from '@/sonner/types';
 
 export const getAsset = (type: ToastTypes) => {

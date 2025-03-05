@@ -34,7 +34,7 @@ export default defineConfig(env => {
 			dts({
 				include: ['./src/sonner/*', './src/index.ts'],
 				rollupTypes: true,
-				tsconfigPath: './tsconfig.app.json'
+				tsconfigPath: './tsconfig.json'
 			})
 		];
 	}
