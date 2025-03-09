@@ -138,7 +138,7 @@ type Offset =
 	| string
 	| number;
 
-export interface ToasterProps {
+export interface ToastrProps {
 	className?: string;
 	closeButton?: boolean;
 	containerAriaLabel?: string;

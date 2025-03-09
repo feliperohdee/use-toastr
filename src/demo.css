@@ -47,7 +47,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.sonner-demo {
+.toastr-demo {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -56,7 +56,7 @@ body {
 		color 0.3s ease;
 }
 
-.sonner-demo.dark-slate {
+.toastr-demo.dark-slate {
 	background-color: var(--slate-900);
 	color: var(--slate-200);
 	background-image:

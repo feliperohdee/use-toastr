@@ -1,3 +1,4 @@
-import { toast, Toaster, useSonner } from '@/sonner';
+import { toast, Toastr, useToastr } from '@/toastr';
 
-export { toast, Toaster, useSonner };
+export { toast, Toastr, useToastr };
+export default { toast, Toastr, useToastr };

@@ -1,5 +1,5 @@
 {
-	"name": "use-sonner",
+	"name": "use-toastr",
 	"devDependencies": {
 		"@eslint/js": "^9.19.0",
 		"@types/lodash": "^4.17.16",
@@ -37,5 +37,5 @@
 		"lint": "prettier --write . && eslint .",
 		"npm-publish": "yarn build && yarn version --patch --no-git-tag-version && yarn publish --non-interactive"
 	},
-	"version": "1.0.6"
+	"version": "1.0.1"
 }

@@ -1,4 +1,4 @@
-import type { ToastTypes } from '@/sonner/types';
+import type { ToastTypes } from '@/toastr/types';
 
 export const getAsset = (type: ToastTypes) => {
 	switch (type) {
@@ -30,15 +30,15 @@ export const Loader = ({
 }) => {
 	return (
 		<div
-			className={['sonner-loading-wrapper', className]
+			className={['toastr-loading-wrapper', className]
 				.filter(Boolean)
 				.join(' ')}
 			data-visible={visible}
 		>
-			<div className='sonner-spinner'>
+			<div className='toastr-spinner'>
 				{bars.map((_, i) => (
 					<div
-						className='sonner-loading-bar'
+						className='toastr-loading-bar'
 						key={`spinner-bar-${i}`}
 					/>
 				))}

@@ -1,4 +1,4 @@
-import '@/sonner/styles.css';
+import '@/toastr/styles.css';
 
 import { flushSync } from 'react-dom';
 import {
@@ -12,18 +12,18 @@ import {
 	useState
 } from 'react';
 
-import { CloseIcon, getAsset, Loader } from '@/sonner/assets';
-import { useIsDocumentHidden } from '@/sonner/hooks';
-import { toast, ToastState } from '@/sonner/state';
+import { CloseIcon, getAsset, Loader } from '@/toastr/assets';
+import { useIsDocumentHidden } from '@/toastr/hooks';
+import { toast, ToastState } from '@/toastr/state';
 import {
 	HeightT,
 	isAction,
 	SwipeDirection,
-	ToasterProps,
+	ToastrProps,
 	ToastProps,
 	ToastT,
 	ToastToDismiss
-} from '@/sonner/types';
+} from '@/toastr/types';
 
 // Visible toasts amount
 const VISIBLE_TOASTS_AMOUNT = 3;
@@ -74,11 +74,11 @@ const Toast = (props: ToastProps) => {
 		cancelButtonStyle,
 		className = '',
 		classNames,
-		closeButton: closeButtonFromToaster,
+		closeButton: closeButtonFromToastr,
 		closeButtonAriaLabel = 'Close toast',
 		defaultRichColors,
 		descriptionClassName = '',
-		duration: durationFromToaster,
+		duration: durationFromToastr,
 		expandByDefault,
 		expanded,
 		gap,
@@ -86,7 +86,7 @@ const Toast = (props: ToastProps) => {
 		icons,
 		index,
 		interacting,
-		invert: ToasterInvert,
+		invert: ToastrInvert,
 		position,
 		removeToast,
 		setHeights,
@@ -111,7 +111,7 @@ const Toast = (props: ToastProps) => {
 	const [offsetBeforeRemove, setOffsetBeforeRemove] = useState(0);
 	const [initialHeight, setInitialHeight] = useState(0);
 	const remainingTime = useRef(
-		toast.duration || durationFromToaster || TOAST_LIFETIME
+		toast.duration || durationFromToastr || TOAST_LIFETIME
 	);
 	const dragStartTime = useRef<Date | null>(null);
 	const toastRef = useRef<HTMLLIElement>(null);
@@ -127,12 +127,12 @@ const Toast = (props: ToastProps) => {
 		[heights, toast.id]
 	);
 	const closeButton = useMemo(
-		() => toast.closeButton ?? closeButtonFromToaster,
-		[toast.closeButton, closeButtonFromToaster]
+		() => toast.closeButton ?? closeButtonFromToastr,
+		[toast.closeButton, closeButtonFromToastr]
 	);
 	const duration = useMemo(
-		() => toast.duration || durationFromToaster || TOAST_LIFETIME,
-		[toast.duration, durationFromToaster]
+		() => toast.duration || durationFromToastr || TOAST_LIFETIME,
+		[toast.duration, durationFromToastr]
 	);
 	const closeTimerStartTimeRef = useRef(0);
 	const offset = useRef(0);
@@ -151,7 +151,7 @@ const Toast = (props: ToastProps) => {
 	}, [heights, heightIndex]);
 	const isDocumentHidden = useIsDocumentHidden();
 
-	const invert = toast.invert || ToasterInvert;
+	const invert = toast.invert || ToastrInvert;
 	const disabled = toastType === 'loading';
 
 	offset.current = useMemo(() => {
@@ -302,7 +302,7 @@ const Toast = (props: ToastProps) => {
 					className={cn(
 						classNames?.loader,
 						toast?.classNames?.loader,
-						'sonner-loader'
+						'toastr-loader'
 					)}
 					data-visible={toastType === 'loading'}
 				>
@@ -334,7 +334,7 @@ const Toast = (props: ToastProps) => {
 				// @ts-expect-error
 				toast?.classNames?.[toastType]
 			)}
-			data-sonner-toast=''
+			data-toastr-toast=''
 			data-rich-colors={toast.richColors ?? defaultRichColors}
 			data-styled={!(toast.jsx || toast.unstyled || unstyled)}
 			data-mounted={mounted}
@@ -672,7 +672,7 @@ const Toast = (props: ToastProps) => {
 	);
 };
 
-const getDocumentDirection = (): ToasterProps['dir'] => {
+const getDocumentDirection = (): ToastrProps['dir'] => {
 	if (typeof window === 'undefined') return 'ltr';
 	if (typeof document === 'undefined') return 'ltr'; // For Fresh purpose
 
@@ -680,15 +680,15 @@ const getDocumentDirection = (): ToasterProps['dir'] => {
 
 	if (dirAttribute === 'auto' || !dirAttribute) {
 		return window.getComputedStyle(document.documentElement)
-			.direction as ToasterProps['dir'];
+			.direction as ToastrProps['dir'];
 	}
 
-	return dirAttribute as ToasterProps['dir'];
+	return dirAttribute as ToastrProps['dir'];
 };
 
 const assignOffset = (
-	defaultOffset: ToasterProps['offset'],
-	mobileOffset: ToasterProps['mobileOffset']
+	defaultOffset: ToastrProps['offset'],
+	mobileOffset: ToastrProps['mobileOffset']
 ) => {
 	const styles = {};
 
@@ -734,7 +734,7 @@ const assignOffset = (
 	return styles;
 };
 
-const useSonner = () => {
+const useToastr = () => {
 	const [activeToasts, setActiveToasts] = useState<ToastT[]>([]);
 
 	useEffect(() => {
@@ -779,7 +779,7 @@ const useSonner = () => {
 	};
 };
 
-const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
+const Toastr = forwardRef<HTMLElement, ToastrProps>((props, ref) => {
 	const {
 		className,
 		closeButton,
@@ -1001,8 +1001,8 @@ const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
 					<ol
 						className={className}
 						data-lifted={expanded && toasts.length > 1 && !expand}
-						data-sonner-theme={actualTheme}
-						data-sonner-toaster
+						data-toastr-theme={actualTheme}
+						data-toastr-toastr
 						data-x-position={x}
 						data-y-position={y}
 						dir={dir === 'auto' ? getDocumentDirection() : dir}
@@ -1131,4 +1131,4 @@ const Toaster = forwardRef<HTMLElement, ToasterProps>((props, ref) => {
 	);
 });
 
-export { toast, Toaster, useSonner };
+export { toast, Toastr, useToastr };

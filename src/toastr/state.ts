@@ -8,7 +8,7 @@ import type {
 	ToastT,
 	ToastToDismiss,
 	ToastTypes
-} from '@/sonner/types';
+} from '@/toastr/types';
 
 let toastsCounter = 1;
 

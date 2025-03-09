@@ -1,10 +1,10 @@
 import '@/demo.css';
 
 import { useState } from 'react';
-import { toast, Toaster } from '@/sonner';
-import { Position } from '@/sonner/types';
+import { toast, Toastr } from '@/toastr';
+import { Position } from '@/toastr/types';
 
-const SonnerDemo = () => {
+const ToastrDemo = () => {
 	const [position, setPosition] = useState<Position>('bottom-right');
 	const [duration, setDuration] = useState(4000);
 	const [richColors, setRichColors] = useState(true);
@@ -91,10 +91,10 @@ const SonnerDemo = () => {
 	};
 
 	return (
-		<div className='sonner-demo dark-slate'>
+		<div className='toastr-demo dark-slate'>
 			<div className='container'>
 				<div className='header'>
-					<h1>Sonner Library</h1>
+					<h1>Toastr Library</h1>
 					<p>
 						A beautiful, accessible, and customizable toast
 						notification component for React
@@ -241,13 +241,13 @@ const SonnerDemo = () => {
 						<pre>
 							<code>
 								{`// Basic import
-import { toast, Toaster } from 'use-sonner';
+import { toast, Toastr } from 'use-toastr';
 
-// Add the Toaster component to your app
+// Add the Toastr component to your app
 const App = () => {
   return (
     <>
-      <Toaster position="${position}" theme="dark" />
+      <Toastr position="${position}" theme="dark" />
       {/* Rest of your app */}
     </>
   )
@@ -275,8 +275,8 @@ toast('New message', {
 				</div>
 			</div>
 
-			{/* Toaster component with chosen settings */}
-			<Toaster
+			{/* Toastr component with chosen settings */}
+			<Toastr
 				position={position}
 				theme='dark'
 				duration={duration}
@@ -285,10 +285,10 @@ toast('New message', {
 			/>
 
 			<footer>
-				<p>Made with ❤️ | Sonner Library for React</p>
+				<p>Made with ❤️ | Toastr Library for React</p>
 			</footer>
 		</div>
 	);
 };
 
-export default SonnerDemo;
+export default ToastrDemo;
