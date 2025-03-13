@@ -984,13 +984,13 @@ const Toastr = forwardRef<HTMLElement, ToastrProps>((props, ref) => {
 	return (
 		// Remove item from normal navigation flow, only available via hotkey
 		<section
-			ref={ref}
+			aria-atomic='false'
 			aria-label={`${containerAriaLabel} ${hotkeyLabel}`}
-			tabIndex={-1}
 			aria-live='polite'
 			aria-relevant='additions text'
-			aria-atomic='false'
+			ref={ref}
 			suppressHydrationWarning
+			tabIndex={-1}
 		>
 			{possiblePositions.map((position, index) => {
 				const [y, x] = position.split('-');
