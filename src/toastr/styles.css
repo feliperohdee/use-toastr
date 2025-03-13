@@ -1,5 +1,5 @@
 html[dir='ltr'],
-[data-toastr-toastr][dir='ltr'] {
+[data-toastr][dir='ltr'] {
 	--toast-icon-margin-start: -3px;
 	--toast-icon-margin-end: 4px;
 	--toast-svg-margin-start: -1px;
@@ -12,7 +12,7 @@ html[dir='ltr'],
 }
 
 html[dir='rtl'],
-[data-toastr-toastr][dir='rtl'] {
+[data-toastr][dir='rtl'] {
 	--toast-icon-margin-start: 4px;
 	--toast-icon-margin-end: -3px;
 	--toast-svg-margin-start: 0px;
@@ -24,7 +24,7 @@ html[dir='rtl'],
 	--toast-close-button-transform: translate(35%, -35%);
 }
 
-[data-toastr-toastr] {
+[data-toastr] {
 	position: fixed;
 	width: var(--width);
 	font-family:
@@ -64,34 +64,34 @@ html[dir='rtl'],
 	transition: transform 400ms ease;
 }
 
-[data-toastr-toastr][data-lifted='true'] {
+[data-toastr][data-lifted='true'] {
 	transform: translateY(-8px);
 }
 
 @media (hover: none) and (pointer: coarse) {
-	[data-toastr-toastr][data-lifted='true'] {
+	[data-toastr][data-lifted='true'] {
 		transform: none;
 	}
 }
 
-[data-toastr-toastr][data-x-position='right'] {
+[data-toastr][data-x-position='right'] {
 	right: var(--offset-right);
 }
 
-[data-toastr-toastr][data-x-position='left'] {
+[data-toastr][data-x-position='left'] {
 	left: var(--offset-left);
 }
 
-[data-toastr-toastr][data-x-position='center'] {
+[data-toastr][data-x-position='center'] {
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-[data-toastr-toastr][data-y-position='top'] {
+[data-toastr][data-y-position='top'] {
 	top: var(--offset-top);
 }
 
-[data-toastr-toastr][data-y-position='bottom'] {
+[data-toastr][data-y-position='bottom'] {
 	bottom: var(--offset-bottom);
 }
 
@@ -153,7 +153,7 @@ html[dir='rtl'],
 	color: #3f3f3f;
 }
 
-[data-toastr-toastr][data-toastr-theme='dark'] [data-description] {
+[data-toastr][data-toastr-theme='dark'] [data-description] {
 	color: hsl(0, 0%, 91%);
 }
 
@@ -233,7 +233,7 @@ html[dir='rtl'],
 	background: rgba(0, 0, 0, 0.08);
 }
 
-[data-toastr-toastr][data-toastr-theme='dark']
+[data-toastr][data-toastr-theme='dark']
 	[data-toastr-toast][data-styled='true']
 	[data-cancel] {
 	background: rgba(255, 255, 255, 0.3);
@@ -456,43 +456,43 @@ html[dir='rtl'],
 }
 
 @media (max-width: 600px) {
-	[data-toastr-toastr] {
+	[data-toastr] {
 		position: fixed;
 		right: var(--mobile-offset-right);
 		left: var(--mobile-offset-left);
 		width: 100%;
 	}
 
-	[data-toastr-toastr][dir='rtl'] {
+	[data-toastr][dir='rtl'] {
 		left: calc(var(--mobile-offset-left) * -1);
 	}
 
-	[data-toastr-toastr] [data-toastr-toast] {
+	[data-toastr] [data-toastr-toast] {
 		left: 0;
 		right: 0;
 		width: calc(100% - var(--mobile-offset-left) * 2);
 	}
 
-	[data-toastr-toastr][data-x-position='left'] {
+	[data-toastr][data-x-position='left'] {
 		left: var(--mobile-offset-left);
 	}
 
-	[data-toastr-toastr][data-y-position='bottom'] {
+	[data-toastr][data-y-position='bottom'] {
 		bottom: var(--mobile-offset-bottom);
 	}
 
-	[data-toastr-toastr][data-y-position='top'] {
+	[data-toastr][data-y-position='top'] {
 		top: var(--mobile-offset-top);
 	}
 
-	[data-toastr-toastr][data-x-position='center'] {
+	[data-toastr][data-x-position='center'] {
 		left: var(--mobile-offset-left);
 		right: var(--mobile-offset-right);
 		transform: none;
 	}
 }
 
-[data-toastr-toastr][data-toastr-theme='light'] {
+[data-toastr][data-toastr-theme='light'] {
 	--normal-bg: #fff;
 	--normal-border: var(--gray4);
 	--normal-text: var(--gray12);
@@ -514,21 +514,21 @@ html[dir='rtl'],
 	--error-text: hsl(360, 100%, 45%);
 }
 
-[data-toastr-toastr][data-toastr-theme='light']
+[data-toastr][data-toastr-theme='light']
 	[data-toastr-toast][data-invert='true'] {
 	--normal-bg: #000;
 	--normal-border: hsl(0, 0%, 20%);
 	--normal-text: var(--gray1);
 }
 
-[data-toastr-toastr][data-toastr-theme='dark']
+[data-toastr][data-toastr-theme='dark']
 	[data-toastr-toast][data-invert='true'] {
 	--normal-bg: #fff;
 	--normal-border: var(--gray3);
 	--normal-text: var(--gray12);
 }
 
-[data-toastr-toastr][data-toastr-theme='dark'] {
+[data-toastr][data-toastr-theme='dark'] {
 	--normal-bg: #000;
 	--normal-bg-hover: hsl(0, 0%, 12%);
 	--normal-border: hsl(0, 0%, 20%);
@@ -552,7 +552,7 @@ html[dir='rtl'],
 	--error-text: hsl(358, 100%, 81%);
 }
 
-[data-toastr-toastr][data-toastr-theme='dark']
+[data-toastr][data-toastr-theme='dark']
 	[data-toastr-toast]
 	[data-close-button] {
 	background: var(--normal-bg);
@@ -560,7 +560,7 @@ html[dir='rtl'],
 	color: var(--normal-text);
 }
 
-[data-toastr-toastr][data-toastr-theme='dark']
+[data-toastr][data-toastr-theme='dark']
 	[data-toastr-toast]
 	[data-close-button]:hover {
 	background: var(--normal-bg-hover);

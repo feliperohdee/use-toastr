@@ -1001,8 +1001,8 @@ const Toastr = forwardRef<HTMLElement, ToastrProps>((props, ref) => {
 					<ol
 						className={className}
 						data-lifted={expanded && toasts.length > 1 && !expand}
+						data-toastr
 						data-toastr-theme={actualTheme}
-						data-toastr-toastr
 						data-x-position={x}
 						data-y-position={y}
 						dir={dir === 'auto' ? getDocumentDirection() : dir}
